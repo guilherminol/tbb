@@ -12,7 +12,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <img src={product.images[0].src} alt={product.images[0].alt} />
       <p>{parse(product.shortDescription)}</p>
       <Buttons>
-        <button className="Details" onClick={() => navigate(product.id)}>
+        <button
+          className="Details"
+          onClick={() => navigate(`/product_details/${product.id}`)}
+        >
           Ver mais
         </button>
         <button className="Cart">{<BsCart4 />}</button>

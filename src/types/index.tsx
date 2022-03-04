@@ -30,3 +30,7 @@ export interface ProductProviderData {
 export interface ProductsProviderProps {
   children: ReactNode;
 }
+
+export interface ProductDetailsProps {
+  product: Product | undefined;
+}

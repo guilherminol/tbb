@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.ul`
-    padding: 0
+  padding: 0;
   margin: 0 auto;
   display: grid;
   justify-content: space-around;
@@ -9,6 +9,7 @@ export const Container = styled.ul`
   grid-auto-flow: row;
   grid-template-columns: repeat(auto-fill, 320px);
   list-style-type: none;
+
   @media (min-width: 900px) {
     padding: 0 30px;
 
