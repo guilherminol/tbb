@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   header {
-    margin: 0 auto;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,10 +12,10 @@ export const Container = styled.div`
     }
     svg {
       display: none;
+      font-size: 50px;
     }
     .mobileLogo {
       display: initial;
-      font-size: 30px;
     }
   }
   @media (min-width: 768px) {
@@ -23,10 +23,13 @@ export const Container = styled.div`
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-direction: row;
       width: 700px;
-    }
-    svg {
-      font-size: 50px;
+      svg {
+        display: initial;
+      }
+       h1 {
+        font-size: 32px;
     }
   }
 `;
