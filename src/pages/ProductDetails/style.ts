@@ -32,7 +32,7 @@ export const Container = styled.div`
   @media (min-width: 768px) {
     .GetBack {
       margin: 5px 0 0 10px;
-      font-size: 32px;
+      font-size: 42px;
       cursor: pointer;
     }
     header {
