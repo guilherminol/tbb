@@ -22,6 +22,9 @@ html {
 
 body {
   margin: 0;
+  background-color: #191d32;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
 }
 
 /**
