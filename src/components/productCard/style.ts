@@ -30,7 +30,7 @@ export const Container = styled.li`
 export const Buttons = styled.div`
   display: flex;
   justify-content: space-around;
-  padding-bottom: 10px;
+  padding: 10px 0;
   .Details {
     background-color: #191d32;
     color: #faa916;
