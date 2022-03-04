@@ -29,6 +29,7 @@ const ProductDetail = () => {
         <h1>Um pouco mais sobre o produto</h1>
         <AiFillTag className="mobileLogo" />
       </header>
+
       <ProductDetails product={product} />
     </Container>
   );
