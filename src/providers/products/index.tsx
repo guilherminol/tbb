@@ -1,27 +1,10 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import data from "../../assets/data.json";
-
-interface Product {
-  name: string;
-  shortDescription: string;
-  id: string;
-  images: {
-    alt: string;
-    src: string;
-  }[];
-  category: {
-    name: string;
-    id: string;
-  };
-}
-interface ProductProviderData {
-  products: Product[];
-  getOneProduct: (id: string) => Product;
-}
-
-interface ProductsProviderProps {
-  children: ReactNode;
-}
+import {
+  Product,
+  ProductProviderData,
+  ProductsProviderProps,
+} from "../../types";
 
 export const ProductsContext = createContext({} as ProductProviderData);
 

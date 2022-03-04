@@ -2,23 +2,7 @@ import { Buttons, Container } from "./style";
 import { BsCart4 } from "react-icons/bs";
 import parse from "html-react-parser";
 import { useNavigate } from "react-router-dom";
-
-interface Product {
-  name: string;
-  shortDescription: string;
-  id: string;
-  images: {
-    alt: string;
-    src: string;
-  }[];
-  category: {
-    name: string;
-    id: string;
-  };
-}
-interface ProductCardProps {
-  product: Product;
-}
+import { ProductCardProps } from "../../types";
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const navigate = useNavigate();
