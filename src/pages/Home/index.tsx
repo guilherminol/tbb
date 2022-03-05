@@ -5,22 +5,14 @@ import { ProductsContext } from "../../providers/products";
 import { Container, Input } from "./style";
 
 const Home = () => {
-  const { filteredProduct, filterProducts } = useContext(ProductsContext);
+  const { filteredProduct, filterProducts, categories } =
+    useContext(ProductsContext);
   const [search, setSearch] = useState("");
-  const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("");
 
-  const getCategories = () => {
-    const mapCategories = filteredProduct.map(
-      (product) => product.category.name
-    );
-    const uniqueCategories = [...new Set(mapCategories)];
-    setCategories(uniqueCategories);
-  };
-
   useEffect(() => {
-    getCategories();
-  }, [filteredProduct]);
+    filterProducts(search, selectedCategory);
+  }, [selectedCategory, search]);
 
   return (
     <Container>
@@ -28,22 +20,17 @@ const Home = () => {
         <h1>Bem Vindo(a) a nossa loja!</h1>
         <h2>Conheça nossos produtos:</h2>
       </header>
-      <div>
+      <div className="filteringInputs">
         <Input>
           <input
             type="text"
             placeholder="Search"
             onChange={(e) => setSearch(e.target.value)}
           />
-          <button
-            className={"searchButton"}
-            onClick={() => filterProducts(search)}
-          >
-            <BsSearch />
-          </button>
+          <BsSearch />
         </Input>
         <select onChange={(e) => setSelectedCategory(e.target.value)}>
-          <option value={undefined}>Selecione uma categoria</option>
+          <option value="">Filtrar por categoria</option>
           {categories.map((category) => (
             <option key={category} value={category}>
               {category}

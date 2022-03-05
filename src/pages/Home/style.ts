@@ -11,8 +11,23 @@ export const Container = styled.div`
     text-align: center;
     font-weight: normal;
   }
-  div {
-    margin: 20px auto 30px auto;
+
+  .filteringInputs {
+    margin: 20px auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    select {
+      padding: 10px;
+      border-radius: 10px;
+      background-color: #fff;
+      :focus {
+        outline: none;
+      }
+    }
   }
   @media (min-width: 768px) {
     h1 {
@@ -21,17 +36,20 @@ export const Container = styled.div`
     h2 {
       font-size: 28px;
     }
-    div {
-      display: flex;
-      align-items: space-around;
+    .filteringInputs {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
     }
   }
 `;
 export const Input = styled.div`
   display: flex;
   background-color: #fff;
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 10px;
   width: fit-content;
+  align-items: center;
+  margin-bottom: 15px;
   input {
     width: 200px;
     padding: 10px;
@@ -41,19 +59,15 @@ export const Input = styled.div`
       outline: none;
     }
   }
-  button {
-    background-color: transparent;
-    border: none;
+
+  svg {
+    font-size: 20px;
+    height: 100%;
+    color: #191d32;
     padding: 0 15px 0 0;
-    background-color: #fff;
-    border-radius: 0 10px 10px 0;
-    height: 35px;
-    :hover {
-      cursor: pointer;
-    }
-    svg {
-      height: 100%;
-      color: #191d32;
-    }
+  }
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+    height: 44px;
   }
 `;

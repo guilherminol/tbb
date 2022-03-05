@@ -25,7 +25,11 @@ export interface ProductListProps {
 export interface ProductProviderData {
   filteredProduct: Product[];
   getOneProduct: (id: string) => Product;
-  filterProducts: (product_name: string) => void;
+  filterProducts: (
+    product_name: string,
+    product_category?: string | undefined
+  ) => void;
+  categories: string[];
 }
 
 export interface ProductsProviderProps {
