@@ -10,10 +10,6 @@ const Home = () => {
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("");
 
-  useEffect(() => {
-    console.log(selectedCategory);
-  }, [selectedCategory]);
-
   const getCategories = () => {
     const mapCategories = filteredProduct.map(
       (product) => product.category.name
