@@ -12,7 +12,7 @@ export const Container = styled.div`
     font-weight: normal;
   }
   div {
-    margin: 0 auto;
+    margin: 20px auto 30px auto;
   }
   @media (min-width: 768px) {
     h1 {

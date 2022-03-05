@@ -10,6 +10,7 @@ export const ProductsContext = createContext({} as ProductProviderData);
 
 export const ProductsProvider = ({ children }: ProductsProviderProps) => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [filteredProduct, setFilteredProduct] = useState<Product[]>([]);
 
   const addDataIntoCache = (
     cacheName: string,
@@ -58,8 +59,25 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    filterProducts("");
+  }, [products]);
+
+  const filterProducts = (product_name: string) => {
+    console.log(product_name);
+    if (product_name) {
+      const newProducts = products.filter((product) =>
+        product.name.toLowerCase().includes(product_name.toLowerCase())
+      );
+      setFilteredProduct(newProducts);
+    } else {
+      setFilteredProduct(products);
+    }
+  };
   return (
-    <ProductsContext.Provider value={{ products, getOneProduct }}>
+    <ProductsContext.Provider
+      value={{ filteredProduct, getOneProduct, filterProducts }}
+    >
       {children}
     </ProductsContext.Provider>
   );

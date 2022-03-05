@@ -5,8 +5,9 @@ import { ProductsContext } from "../../providers/products";
 import { Container, Input } from "./style";
 
 const Home = () => {
-  const { products } = useContext(ProductsContext);
+  const { filteredProduct, filterProducts } = useContext(ProductsContext);
   const [search, setSearch] = useState("");
+
   return (
     <Container>
       <header>
@@ -20,13 +21,16 @@ const Home = () => {
             placeholder="Search"
             onChange={(e) => setSearch(e.target.value)}
           />
-          <button>
+          <button
+            className={"searchButton"}
+            onClick={() => filterProducts(search)}
+          >
             <BsSearch />
           </button>
         </Input>
       </div>
 
-      <ProductList products={products} />
+      <ProductList products={filteredProduct} />
     </Container>
   );
 };
