@@ -64,7 +64,6 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
   }, [products]);
 
   const filterProducts = (product_name: string) => {
-    console.log(product_name);
     if (product_name) {
       const newProducts = products.filter((product) =>
         product.name.toLowerCase().includes(product_name.toLowerCase())

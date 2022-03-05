@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import ProductList from "../../components/productsList";
 import { ProductsContext } from "../../providers/products";
@@ -7,6 +7,24 @@ import { Container, Input } from "./style";
 const Home = () => {
   const { filteredProduct, filterProducts } = useContext(ProductsContext);
   const [search, setSearch] = useState("");
+  const [categories, setCategories] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  useEffect(() => {
+    console.log(selectedCategory);
+  }, [selectedCategory]);
+
+  const getCategories = () => {
+    const mapCategories = filteredProduct.map(
+      (product) => product.category.name
+    );
+    const uniqueCategories = [...new Set(mapCategories)];
+    setCategories(uniqueCategories);
+  };
+
+  useEffect(() => {
+    getCategories();
+  }, [filteredProduct]);
 
   return (
     <Container>
@@ -28,6 +46,14 @@ const Home = () => {
             <BsSearch />
           </button>
         </Input>
+        <select onChange={(e) => setSelectedCategory(e.target.value)}>
+          <option value={undefined}>Selecione uma categoria</option>
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
+        </select>
       </div>
 
       <ProductList products={filteredProduct} />
